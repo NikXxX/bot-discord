@@ -10,26 +10,22 @@ module.exports.run = (client, message, args) => {
       const lt = stats.lifetime;
 
       const embed = new MessageEmbed()
-        .setTitle("__Statistiques Fortnite__")
-        .setColor("0040ff")
-        .addField("Pseudo : ", data.username, true)
-        .addField("ID", data.id, true)
-        .addField("Platforme : ", data.platform, true)
-        .addField("Tuer", lt.kills, true)
-        .addField("K/D", lt.kd, true)
-        .addField("Score : ", lt.score, true)
-        .addField("Matches Joués : ", lt.matches)
-        .addField("Top 1 : ", lt.wins, true)
-        .addField("Top 3 : ", lt.top_3, true)
-        .addField("Top 5 : ", lt.top_5, true)
-        .addField("Top 6 : ", lt.top_6, true)
-        .addField("Top 12 : ", lt.top_12, true)
-        .addField("Top 25 : ", lt.top_25, true);
-
+        .setTitle(lang.title)
+        .setColor('0040ff')
+        .addField(lang.nom, `**${data.username}**`, true)
+        .addField(lang.id, `**${data.id}**`, true)
+        .addField(lang.kd, `**${lt.kd}**` || '0', true)
+        .addField(lang.kill, `**${lt.kills}**` || '0', true)
+        .addField(lang.match, `**${lt.matches}**` || '0', true)
+        .addField(lang.top1, `**${lt.wins}**` || '0', true)
+        .addField(lang.top3, `**${lt.top_3}**` || '0', true)
+        .addField(lang.top5, `**${lt.top_5}**` || '0', true)
+        .setTimestamp()
+        .setFooter(message.author.username, message.author.avatarURL())
       message.channel.send(embed);
     });
-  } catch (e) {
-    console.log(e);
+  } catch(e){
+    console.log(e)
   }
 };
 module.exports.config = {
