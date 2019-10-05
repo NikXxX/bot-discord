@@ -14,44 +14,52 @@ module.exports.run = async (client, message, args) => {
     },
 
     responseType: "application/JSON"
-  }).then(data => {
-    const embed = new MessageEmbed()
-      .setColor(0x0040ff)
-      .setThumbnail(data.data.league.imageUrl)
-      .setTitle("__Statistiques RushWars__")
-      .addField("- `Pseudo` →", data.data.name, true)
-      .addField("- `Tag` →", data.data.tag, true)
-      .addField("- `League` →", data.data.league.name, true)
-      .addField("- `Stars` →", data.data.stars, true)
-      .addField(
-        "- `Total d'attaques` →",
-        data.data.variables.totalAttacks,
-        true
-      )
-      .addField(
-        "- `Attaques gagnés` →",
-        data.data.variables.totalAttacksWon,
-        true
-      )
-      .addField(
-        "- `Attaques perdus` →",
-        data.data.variables.totalAttacksLost,
-        true
-      )
-      .addField(
-        "- `Défenses gagnés` →",
-        data.data.variables.totalDefensesWon,
-        true
-      )
-      .addField(
-        "- `Défenses perdus` →",
-        data.data.variables.totalDefensesLost,
-        true
-      );
+  })
+    .then(data => {
+      const embed = new MessageEmbed()
+        .setColor(0x0040ff)
+        .setThumbnail(data.data.league.imageUrl)
+        .setTitle("__Statistiques RushWars__")
+        .addField("- `Pseudo` →", data.data.name, true)
+        .addField("- `Tag` →", data.data.tag, true)
+        .addField("- `League` →", data.data.league.name, true)
+        .addField("- `Stars` →", data.data.stars, true)
+        .addField(
+          "- `Total d'attaques` →",
+          data.data.variables.totalAttacks,
+          true
+        )
+        .addField(
+          "- `Attaques gagnés` →",
+          data.data.variables.totalAttacksWon,
+          true
+        )
+        .addField(
+          "- `Attaques perdus` →",
+          data.data.variables.totalAttacksLost,
+          true
+        )
+        .addField(
+          "- `Défenses gagnés` →",
+          data.data.variables.totalDefensesWon,
+          true
+        )
+        .addField(
+          "- `Défenses perdus` →",
+          data.data.variables.totalDefensesLost,
+          true
+        );
 
-    message.channel.send(embed);
-    // console.log(data);
-  });
+      message.channel.send(embed).catch(err => {
+        console.log("1");
+        message.reply("Utilisateur introuvable");
+      });
+    })
+    .catch(err => {
+      console.log("2");
+      message.reply("Le site n'est pas accesible");
+    });
+  // console.log(data);
 };
 module.exports.config = {
   name: "rwstats",

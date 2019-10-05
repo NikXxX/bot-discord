@@ -15,7 +15,7 @@ module.exports = {
         ":newspaper: **Informations →**",
         "`badge` , `help` , `serveurinfos`"
       )
-      .addField(":video_game: **Jeux →**", "`brstats` , `fnstats` , `rwstats`")
+      .addField(":video_game: **Jeux →**", "`crstats` , `brstats` , `crstats` , `fnstats` , `rwstats`")
       .addField(":tada: **Fun →**", "`blague` , `joke`")
       .addField(
         ":camping: **Images →**",
