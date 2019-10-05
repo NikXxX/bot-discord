@@ -4,7 +4,7 @@ module.exports.run = async (client, message) => {
   axios({
     method: "get",
 
-    url: "https://blague.xyz/joke/random",
+    url: "https://blague.xyz/joke/day",
 
     headers: {
       Authorization:
@@ -15,12 +15,10 @@ module.exports.run = async (client, message) => {
   }).then(data => {
     const em = new MessageEmbed()
       .setTimestamp()
-      .setThumbnail(
-        "https://cdn.discordapp.com/avatars/565671495356121143/49be6a92732b58382c57380c6d6fe9f4.webp?size=512"
-      )
+      .setThumbnail("https://cdn.discordapp.com/avatars/565671495356121143/49be6a92732b58382c57380c6d6fe9f4.webp?size=512")
       .setFooter(client.user.username, client.user.avatarURL())
       .setAuthor(message.author.username, message.author.avatarURL())
-      .setTitle("__Blague aléatoire__")
+      .setTitle("__Blague du jours__")
       .setColor(0x0040ff)
       .setDescription(
         `${data.data.joke.question}\n||${data.data.joke.answer}||`
@@ -30,6 +28,6 @@ module.exports.run = async (client, message) => {
   });
 };
 module.exports.config = {
-  name: "blague",
+  name: "joke",
   aliases: []
 };

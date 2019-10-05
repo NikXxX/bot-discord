@@ -11,9 +11,12 @@ module.exports = {
       .setFooter(client.user.username, client.user.avatarURL())
       .setAuthor(message.author.username, message.author.avatarURL())
       .setColor(0x0040ff)
-      .addField(":newspaper: **Informations →**", "`help`")
+      .addField(
+        ":newspaper: **Informations →**",
+        "`badge` , `help` , `serveurinfos`"
+      )
       .addField(":video_game: **Jeux →**", "`brstats` , `fnstats` , `rwstats`")
-      .addField(":tada: **Fun →**", "`blague`")
+      .addField(":tada: **Fun →**", "`blague` , `joke`")
       .addField(
         ":camping: **Images →**",
         "`beautiful` , `crush` , `gay` , `sniper` , `vs`"
