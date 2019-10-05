@@ -1,4 +1,5 @@
 const Client = require("fortnite");
+const lang = require('../lang/fr.json').fnstats
 const fortnite = new Client("0cdc3b8d-0f31-44e4-bd6a-47afe459b55f");
 const { MessageEmbed } = require("discord.js");
 module.exports.run = (client, message, args) => {
