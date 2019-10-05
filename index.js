@@ -2,10 +2,7 @@ let config = require("./config");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 //client.website = require("./website/dashboard");
-client.on("ready", async () => {
-  console.log(`${client.user.username} is now Active!`);
-  client.user.setActivity(`*help - ${client.guilds.size} serveurs`);
-});
+
 
 const fs = require("fs");
 client.config = config;
@@ -27,18 +24,15 @@ fs.readdir("./commands/", (err, files) => {
     );
   });
 });
-
-client.on("message", async message => {
-  const prefix = config.BOT_PREFIX;
-  if (message.author.bot || message.channel.type === "dm") return;
-  if (!message.content.startsWith(prefix)) return;
-
-  const [cmd, ...args] = message.content.slice(prefix.length).split(/ +/g);
-
-  let commandFile = client.commands.find(c =>
-    c.triggers.includes(cmd.toLowerCase())
-  );
-  if (commandFile) commandFile.run(client, message, args);
+fs.readdir("./events/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {  
+    if (!file.endsWith(".js")) return;    
+    const event = require(`./events/${file}`);
+    let eventName = file.split(".")[0];
+    client.on(eventName, event.bind(null, client));
+    delete require.cache[require.resolve(`./events/${file}`)];
+  });
 });
 
 client.login(config.BOT_TOKEN);

@@ -15,13 +15,15 @@ module.exports.run = async (client, message) => {
   }).then(data => {
     const em = new MessageEmbed()
       .setTimestamp()
-      .setThumbnail("https://cdn.discordapp.com/avatars/565671495356121143/49be6a92732b58382c57380c6d6fe9f4.webp?size=512")
+      .setThumbnail(
+        "https://cdn.discordapp.com/avatars/565671495356121143/49be6a92732b58382c57380c6d6fe9f4.webp?size=512"
+      )
       .setFooter(client.user.username, client.user.avatarURL())
       .setAuthor(message.author.username, message.author.avatarURL())
       .setTitle("__Blague du jours__")
       .setColor(0x0040ff)
       .setDescription(
-        `${data.data.joke.question}\n||${data.data.joke.answer}||`
+        `${data.data.joke.question}\n\n||${data.data.joke.answer}||`
       );
 
     message.channel.send(em);

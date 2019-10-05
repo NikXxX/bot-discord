@@ -23,7 +23,7 @@ module.exports.run = async (client, message) => {
       .setTitle("__Blague aléatoire__")
       .setColor(0x0040ff)
       .setDescription(
-        `${data.data.joke.question}\n||${data.data.joke.answer}||`
+        `${data.data.joke.question}\n\n||${data.data.joke.answer}||`
       );
 
     message.channel.send(em);
