@@ -1,7 +1,7 @@
 module.exports.run = async (client, message, args) => {
   const axios = require("axios");
   const { MessageEmbed } = require("discord.js");
-  const user = args[0].replace(/#/gi, "");
+  const user = args.join(" ").replace(/#/gi, "");
   if (!user) return message.reply("Utilisation : *rwstats <tag>");
   const ligue = {
     Bronze: "<:Bronze:630332521317400576>",

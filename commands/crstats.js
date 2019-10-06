@@ -1,6 +1,6 @@
 module.exports.run = async (client, message, args) => {
   const { MessageEmbed } = require("discord.js");
-  const user = args[0].replace(/#/gi, "");
+  const user = args.join(" ").replace(/#/gi , "");
   if (!user) return message.reply("Utilisation : *crstats <tag>");
   const axios = require("axios");
   axios({

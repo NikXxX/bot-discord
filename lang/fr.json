@@ -16,13 +16,13 @@
   "err": "Joueur introuvable.",
   "title": "__Statistiques Fortnite__",
   "notag": "Veuillez saisir le nom d'un joueur Fortnite",
-  "nom": "- `Pseudo` →",
-  "id": "- `Identifiant` →",
-  "kd": "- `K/D` →",
-  "kill": "- `Tuer` →",
-  "top1": "- `Top 1` →",
-  "top3": "- `Top 3` →",
-  "top5": "- `Top 5` →",
-  "match": "- `Matches` →"
+  "nom": ":bust_in_silhouette: Pseudo",
+  "id": ":id: Identifiant",
+  "kd": "K/D",
+  "kill": ":skull_crossbones: Tuer",
+  "top1": "<:Number1Emoticon:630350070897836072> Top 1",
+  "top3": "Top 3",
+  "top5": "Top 5",
+  "match": ":video_game: Matches"
 }
 }
