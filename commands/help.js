@@ -13,9 +13,12 @@ module.exports = {
       .setColor(0x0040ff)
       .addField(
         ":newspaper: **Informations →**",
-        "`badge` , `help` , `serveurinfos`"
+        "`badge` , `help` , `npm` , `serveurinfos` , `userinfos`"
       )
-      .addField(":video_game: **Jeux →**", "`crstats` , `brstats` , `crstats` , `fnstats` , `rwstats`")
+      .addField(
+        ":video_game: **Jeux →**",
+        "`crstats` , `brstats` , `crstats` , `fnstats` , `mcserv` , `mcskin` , `rwstats`"
+      )
       .addField(":tada: **Fun →**", "`blague` , `joke`")
       .addField(
         ":camping: **Images →**",

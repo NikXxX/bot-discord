@@ -1,8 +1,12 @@
 module.exports.run = async (client, message, args) => {
   const axios = require("axios");
   const { MessageEmbed } = require("discord.js");
-  const user = args[0];
-  if (!user) return message.reply("Utilisation : *rwstats <tag sans #>");
+  const user = args[0].replace(/#/gi, "");
+  if (!user) return message.reply("Utilisation : *rwstats <tag>");
+  const ligue = {
+    Bronze: "<:Bronze:630332521317400576>",
+    Elite: "<:Elite:630332521514795016>"
+  };
   axios({
     method: "get",
 
@@ -20,36 +24,68 @@ module.exports.run = async (client, message, args) => {
         .setColor(0x0040ff)
         .setThumbnail(data.data.league.imageUrl)
         .setTitle("__Statistiques RushWars__")
-        .addField("- `Pseudo` →", data.data.name, true)
-        .addField("- `Tag` →", data.data.tag, true)
-        .addField("- `League` →", data.data.league.name, true)
-        .addField("- `Stars` →", data.data.stars, true)
         .addField(
-          "- `Total d'attaques` →",
+          "<:625356107971559424:630328550721060898> Pseudo",
+          data.data.name,
+          true
+        )
+        .addField(
+          "<:625356107971559424:630328550721060898> Tag",
+          data.data.tag,
+          true
+        )
+        .addField("<:18:630340794640760866> Niveau", data.data.expLevel, true)
+        .addField(
+          `${ligue[data.data.league.name]} League`,
+          data.data.league.name,
+          true
+        )
+        .addField(
+          "<:625356108483264535:630328551270252544> HQ Niveau",
+          data.data.variables.hqLevel,
+          true
+        )
+        .addField(
+          "<:625356107971559424:630328550721060898> Stars",
+          data.data.stars,
+          true
+        )
+        .addField(
+          "<:Gun:629968354047950858> Total d'attaques",
           data.data.variables.totalAttacks,
           true
         )
         .addField(
-          "- `Attaques gagnés` →",
+          "<:Gun:629968354047950858> Attaques Stars",
+          data.data.variables.attackStars,
+          true
+        )
+        .addField(
+          "<:Gun:629968354047950858> Attaques gagnés",
           data.data.variables.totalAttacksWon,
           true
         )
         .addField(
-          "- `Attaques perdus` →",
+          "<:Gun:629968354047950858> Attaques perdus",
           data.data.variables.totalAttacksLost,
           true
         )
         .addField(
-          "- `Défenses gagnés` →",
+          "<:625356102669959200:630329336536498176> Défenses Stars",
+          data.data.variables.defenseStars,
+          true
+        )
+        .addField(
+          "<:625356102669959200:630329336536498176> Défenses gagnés",
           data.data.variables.totalDefensesWon,
           true
         )
         .addField(
-          "- `Défenses perdus` →",
+          "<:625356102669959200:630329336536498176> Défenses perdus",
           data.data.variables.totalDefensesLost,
           true
         );
-
+      console.log(data.data);
       message.channel.send(embed).catch(err => {
         console.log("1");
         message.reply("Utilisateur introuvable");
@@ -57,9 +93,8 @@ module.exports.run = async (client, message, args) => {
     })
     .catch(err => {
       console.log("2");
-      message.reply("Le site n'est pas accesible");
+      message.reply("Utilisateur introuvable");
     });
-  // console.log(data);
 };
 module.exports.config = {
   name: "rwstats",
