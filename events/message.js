@@ -1,5 +1,12 @@
 module.exports = async (client, message) => {
-  const prefix = "*";
+  const fs = require("fs");
+  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json","utf8"));
+  if(!prefixes[message.guild.id]) {
+   prefixes[message.guild.id] = {
+    prefixes: "*"
+ };
+}
+ let prefix = prefixes[message.guild.id].prefixes
   if (message.author.bot || message.channel.type === "dm") return;
   if (!message.content.startsWith(prefix)) return;
 
