@@ -25,5 +25,7 @@ module.exports.run = async (client, message, args) => {
 };
 module.exports.config = {
   name: "mcserv",
-  aliases: []
+  aliases: [],
+  usage: '*mcserv <ip>',
+  d: "Statistiques d'un serveur Minecraft"
 };

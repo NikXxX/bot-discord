@@ -1,7 +1,7 @@
 var { MessageEmbed } = require("discord.js");
 var npm = require("api-npm");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
   if (!args[0] || args[1])
     return message.channel.send(
       `\\❌ | Veuillez entrer un élément de recherche !`
@@ -40,5 +40,7 @@ exports.run = async (client, message, args) => {
 };
 module.exports.config = {
   name: "npm",
-  aliases: []
+  aliases: [],
+  usage: '*npm <Nom du Module>',
+  d: "Informations d'un module npmjs"
 };

@@ -98,5 +98,8 @@ module.exports.run = async (client, message, args) => {
 };
 module.exports.config = {
   name: "rwstats",
-  aliases: []
+  aliases: [],
+  usage: '*rwstats <tag>',
+  d: "Statistiques d'un joueur RushWars"
+
 };

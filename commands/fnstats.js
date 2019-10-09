@@ -29,5 +29,7 @@ module.exports.run = (client, message, args) => {
 };
 module.exports.config = {
   name: "fnstats",
-  aliases: []
+  aliases: [],
+  usage: '*fnstats <username>',
+  d: "Statistiques d'un joueur Fortnite"
 };

@@ -25,5 +25,7 @@ module.exports.run = async (client, message, args) => {
 };
 module.exports.config = {
   name: "beautiful",
-  aliases: []
+  aliases: [],
+  usage: '*beautiful [mention user]',
+  d: 'Génère une image beautiful'
 };

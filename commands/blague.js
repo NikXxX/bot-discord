@@ -31,5 +31,7 @@ module.exports.run = async (client, message) => {
 };
 module.exports.config = {
   name: "blague",
-  aliases: []
+  aliases: [],
+  usage: '*blague',
+  d: "Fait une blague aléatoire"
 };

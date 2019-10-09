@@ -25,5 +25,7 @@ module.exports.run = async (client, message, args) => {
 };
 module.exports.config = {
   name: "crush",
-  aliases: []
+  aliases: [],
+  usage: "*crush [mention user]",
+  d: 'Génère une image crush'
 };

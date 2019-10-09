@@ -25,5 +25,7 @@ module.exports.run = async (client, message, args) => {
 };
 module.exports.config = {
   name: "gay",
-  aliases: []
+  aliases: [],
+  usage: '*gay [mention user]',
+  d: 'Génère une image gay'
 };

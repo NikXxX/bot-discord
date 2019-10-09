@@ -34,5 +34,7 @@ module.exports.run = async (client, message, args) => {
 };
 module.exports.config = {
   name: "vs",
-  aliases: []
+  aliases: [],
+  usage: '*vs [mention user]',
+  d : 'Génère une image versus'
 };

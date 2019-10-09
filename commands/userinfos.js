@@ -49,5 +49,7 @@ module.exports.run = async (client, message, args) => {
 };
 module.exports.config = {
   name: "userinfos",
-  aliases: ["ui"]
+  aliases: ["ui"],
+  usage: '*userinfos [mention user]',
+  d: "Informations d'un utilisateur"
 };

@@ -25,5 +25,7 @@ module.exports.run = async (client, message, args) => {
 };
 module.exports.config = {
   name: "sniper",
-  aliases: []
+  aliases: [],
+  usage: '*sniper [mention user]',
+  d: 'Génère une image sniper'
 };

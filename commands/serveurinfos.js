@@ -3,12 +3,7 @@ const moment = require("moment");
 moment.locale("fr");
 //const { prefix } = require("../../config.json");
 
-module.exports = {
-  config: {
-    name: "serveurinfos",
-    aliases: ["si"]
-  },
-  run: async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     let verifLevels = [
       "Aucune",
       "Faible",
@@ -80,4 +75,9 @@ module.exports = {
       } else console.error(err);
     });
   }
-};
+module.exports.config = {
+  name: "serveurinfos",
+  aliases: ["si"],
+  usage: '*serveurinfos',
+  d: "Informations d'un utilisateur"
+}

@@ -16,5 +16,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.config = {
   name: "eval",
-  aliases: ["e"]
+  aliases: ["e"],
+  usage: '*eval',
+  d: "Evaluer un code"
 };

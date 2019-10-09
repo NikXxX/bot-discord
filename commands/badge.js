@@ -30,5 +30,7 @@ module.exports.run = async (client, message, args) => {
 };
 module.exports.config = {
   name: "badge",
-  aliases: []
+  aliases: [],
+  usage: '*badge',
+  d: 'Génère le badge du bot'
 };

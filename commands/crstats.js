@@ -37,5 +37,7 @@ module.exports.run = async (client, message, args) => {
 };
 module.exports.config = {
   name: "crstats",
-  aliases: []
+  aliases: [],
+  usage: '*crstats <tag>',
+  d: "Statistiques d'un joueur Clash Royale"
 };
