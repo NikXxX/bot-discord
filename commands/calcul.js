@@ -5,6 +5,13 @@ module.exports.run = (bot, message, args) => {
   const expression2 = args.join(" ");
   if (!expression) return message.channel.send("Veuillez saisir une expression à résoudre!")
   try {
+const bug = new MessageEmbed()
+.setColor("#0040ff")
+.setTitle("•__CALCULATRICE__•")
+ .addField("EXPRESSION", `\`\`\`${expression2}\`\`\``)
+ .addField("RÉSULTAT", `\`\`\`0\`\`\``)
+  
+if(expression === "0/0") return message.channel.send(bug)
     const solved = math.eval(expression).toString();
     const em = new MessageEmbed()
       .setColor(0x0040ff)
